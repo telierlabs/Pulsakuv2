@@ -124,3 +124,23 @@ export interface FAQItem {
 }
 
 export type AppActiveTab = 'home' | 'products' | 'history' | 'favorites' | 'help' | 'settings';
+
+export type NewsCategory = 'Semua' | 'Sains' | 'Teknologi' | 'Ekonomi' | 'Finansial';
+
+export interface NewsArticle {
+  id: string;
+  title: string;
+  category: 'Sains' | 'Teknologi' | 'Ekonomi' | 'Finansial';
+  summary: string;
+  content: string;
+  author: string;
+  readTime: string;
+  date: string;
+  coverGradient: string;
+  badgeBg: string;
+  badgeText: string;
+  iconType: 'smartphone' | 'gamepad' | 'zap' | 'sparkles' | 'shield' | 'trending';
+  relatedCategory?: ProductCategory;
+  relatedCategoryLabel?: string;
+  tags: string[];
+}

@@ -4,7 +4,8 @@ import {
   ProviderId, 
   PaymentMethod, 
   PromoBanner, 
-  FAQItem 
+  FAQItem,
+  NewsArticle
 } from '../types';
 
 export const PROVIDERS: ProviderInfo[] = [
@@ -1011,5 +1012,130 @@ export const INITIAL_FAQS: FAQItem[] = [
     category: 'umum',
     question: 'Apakah saya wajib mendaftar akun untuk bertransaksi?',
     answer: 'Tidak. Pulsaku dirancang tanpa login wajib agar Anda bisa bertransaksi dengan instan kapan saja tanpa hambatan pendaftaran.'
+  }
+];
+
+export const TELIER_NEWS: NewsArticle[] = [
+  {
+    id: 'news-1',
+    title: 'Evolusi Jaringan 6G & Satelit Orbit Rendah: Komputasi Terpadu Global',
+    category: 'Teknologi',
+    summary: 'Riset terbaru arsitektur jaringan masa depan yang menghubungkan stasiun bumi dengan satelit LEO untuk konektivitas tanpa blind spot.',
+    content: `Perkembangan infrastruktur telekomunikasi global kini mulai memusatkan fokus pada riset generasi keenam (6G) dan integrasi satelit orbit rendah (Low Earth Orbit / LEO). 
+
+Teknologi ini memadukan frekuensi Terahertz (THz) dengan kecerdasan buatan terdistribusi, memungkinkan transfer data berkecepatan terabit per detik dan sinkronisasi real-time antar perangkat cerdas di seluruh pelosok dunia.
+
+Bagi ekosistem digital nasional, integrasi ini membuka peluang pemerataan konektivitas hingga ke wilayah terpencil tanpa perlu pembangunan menara fisik di area geografis yang sulit dijangkau.`,
+    author: 'Divisi Riset Teknologi',
+    readTime: '3 mnt',
+    date: 'Hari ini',
+    coverGradient: 'from-neutral-900 via-neutral-800 to-stone-800',
+    badgeBg: 'bg-stone-100 border-stone-300',
+    badgeText: 'text-stone-800',
+    iconType: 'smartphone',
+    relatedCategory: 'kuota',
+    relatedCategoryLabel: 'Cek Paket Data Internet',
+    tags: ['Teknologi', 'Inovasi', '6G', 'Konektivitas']
+  },
+  {
+    id: 'news-2',
+    title: 'Terobosan Baterai Solid-State: Efisiensi Energi Tinggi & Umur Pakai 2x Lipat',
+    category: 'Sains',
+    summary: 'Ilmuwan material berhasil menemukan elektrolit padat stabil yang menekan risiko panas berlebih dan meningkatkan densitas daya.',
+    content: `Penelitian di bidang kimia material mencapai terobosan penting dengan pengembangan sel baterai solid-state generasi baru. Berbeda dari baterai lithium-ion cair konvensional, elektrolit padat berbasis keramik mampu menampung daya 80% lebih padat dengan volume yang jauh lebih ringkas.
+
+Hasil uji laboratorium menunjukkan baterai ini mampu melewati lebih dari 2.500 siklus pengisian penuh tanpa degradasi performa yang berarti, sekaligus mengurangi waktu charging hingga di bawah 15 menit.
+
+Inovasi ini diproyeksikan segera diadopsi pada perangkat smartphone generasi mendatang serta kendaraan listrik ramah lingkungan.`,
+    author: 'Sains & Eksplorasi',
+    readTime: '4 mnt',
+    date: 'Kemarin',
+    coverGradient: 'from-emerald-900 via-teal-900 to-neutral-900',
+    badgeBg: 'bg-emerald-100 border-emerald-300',
+    badgeText: 'text-emerald-900',
+    iconType: 'sparkles',
+    relatedCategory: 'pln',
+    relatedCategoryLabel: 'Cek Token & Daya Listrik',
+    tags: ['Sains', 'Material', 'Energi Terbarukan', 'Baterai']
+  },
+  {
+    id: 'news-3',
+    title: 'Pertumbuhan Transaksi QRIS & Dampak Positif terhadap UMKM Digital',
+    category: 'Ekonomi',
+    summary: 'Adopsi sistem pembayaran non-tunai terus mencatat rekor baru dengan efisiensi biaya operasional bagi jutaan pelaku usaha mikro.',
+    content: `Transformasi ekonomi digital di Indonesia terus menunjukkan akselerasi pesat. Laporan data transaksi nasional mencatatkan volume pembayaran berbasis QRIS tumbuh signifikan di sektor perdagangan ritel dan usaha mikro.
+
+Integrasi standar QR tunggal berhasil memangkas friksi transaksi tunai, mengurangi risiko peredaran uang palsu, dan membuka akses pencatatan keuangan yang transparan bagi pedagang kecil untuk mendapatkan kredit perbankan formal.
+
+Efisiensi ini menjadi motor penggerak stabilitas sirkulasi moneter modern di era serba digital.`,
+    author: 'Analisis Ekonomi',
+    readTime: '3 mnt',
+    date: '2 hari lalu',
+    coverGradient: 'from-amber-900 via-stone-800 to-neutral-900',
+    badgeBg: 'bg-amber-100 border-amber-300',
+    badgeText: 'text-amber-900',
+    iconType: 'shield',
+    relatedCategory: 'pulsa',
+    relatedCategoryLabel: 'Transaksi Bebas Admin',
+    tags: ['Ekonomi', 'Fintech', 'UMKM', 'QRIS']
+  },
+  {
+    id: 'news-4',
+    title: 'Mikroprosesor AI On-Device: Keamanan Data Privat Tanpa Ketergantungan Cloud',
+    category: 'Teknologi',
+    summary: 'Arsitektur Neural Processing Unit (NPU) mutakhir memproses model bahasa besar langsung di dalam chip perangkat lokal.',
+    content: `Pergeseran paradigma kecerdasan buatan dari server terpusat menuju komputasi lokal (*Edge AI*) semakin nyata. Chipset mobile modern kini dilengkapi NPU berdaya komputasi tinggi yang mampu menjalankan kalkulasi AI rumit secara mandiri.
+
+Keuntungan utama dari pemrosesan di perangkat adalah perlindungan privasi pengguna secara absolut, latensi respon instan tanpa perlu koneksi internet terus-menerus, serta penghematan konsumsi kuota data secara drastis.`,
+    author: 'Teknologi Komputasi',
+    readTime: '3 mnt',
+    date: '3 hari lalu',
+    coverGradient: 'from-stone-900 via-neutral-900 to-zinc-800',
+    badgeBg: 'bg-stone-100 border-stone-300',
+    badgeText: 'text-stone-900',
+    iconType: 'smartphone',
+    relatedCategory: 'kuota',
+    relatedCategoryLabel: 'Lihat Paket Data',
+    tags: ['AI', 'Teknologi', 'Privasi', 'Hardware']
+  },
+  {
+    id: 'news-5',
+    title: 'Literasi Finansial Digital: Strategi Alokasi Anggaran Rutin & Pengeluaran Pulsa',
+    category: 'Finansial',
+    summary: 'Metode sederhana 50/30/20 yang disesuaikan untuk mengelola pengeluaran tagihan utilitas, pulsa, dan hiburan digital secara terukur.',
+    content: `Mengelola pos pengeluaran mikro seperti langganan paket data, token listrik, dan voucher hiburan merupakan kunci kestabilan neraca keuangan pribadi.
+
+Pakar keuangan merekomendasikan pembagian alokasi dana utilitas digital di awal bulan, memanfaatkan promo aggregator resmi, serta menghindari transaksi impulsif dengan mengaktifkan fitur pencatatan otomatis transaksi digital.
+
+Dengan perencanaan yang disiplin, pengguna dapat menghemat hingga 20% pengeluaran bulanan untuk dialihkan ke tabungan darurat.`,
+    author: 'Edukasi Finansial',
+    readTime: '4 mnt',
+    date: '4 hari lalu',
+    coverGradient: 'from-zinc-900 via-neutral-800 to-stone-900',
+    badgeBg: 'bg-zinc-100 border-zinc-300',
+    badgeText: 'text-zinc-900',
+    iconType: 'trending',
+    relatedCategory: 'pulsa',
+    relatedCategoryLabel: 'Kelola Pengeluaran Pulsa',
+    tags: ['Finansial', 'Budgeting', 'Pengeluaran', 'Hemat']
+  },
+  {
+    id: 'news-6',
+    title: 'Eksplorasi Fusi Nuklir: Langkah Nyata Menuju Sumber Energi Bersih Tak Terbatas',
+    category: 'Sains',
+    summary: 'Pencapaian rekor baru kurungan plasma magnetik pada reaktor tokamak membuka jalan bagi pembangkit listrik ramah lingkungan.',
+    content: `Para ilmuwan fisika plasma dunia kembali mencetak rekor stabilitas pembakaran plasma dalam fasilitas eksperimen reaktor fusi. Berbeda dari fisi nuklir, reaksi fusi meniru proses energi matahari yang tidak menghasilkan limbah radioaktif jangka panjang dan bebas emisi karbon.
+
+Jika reaktor fusi komersial berhasil direalisasikan dalam dekade mendatang, dunia akan memiliki sumber daya listrik berlimpah yang bersih, murah, dan berkelanjutan untuk menopang seluruh peradaban modern.`,
+    author: 'Sains Fisika & Energi',
+    readTime: '5 mnt',
+    date: '5 hari lalu',
+    coverGradient: 'from-teal-950 via-stone-900 to-neutral-900',
+    badgeBg: 'bg-teal-100 border-teal-300',
+    badgeText: 'text-teal-950',
+    iconType: 'zap',
+    relatedCategory: 'pln',
+    relatedCategoryLabel: 'Cek Tagihan Listrik',
+    tags: ['Sains', 'Fisika', 'Energi Bersih', 'Masa Depan']
   }
 ];

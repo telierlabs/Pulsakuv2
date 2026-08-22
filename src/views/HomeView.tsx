@@ -1,13 +1,16 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { BannerCarousel } from '../components/home/BannerCarousel';
 import { CategoryShortcuts } from '../components/home/CategoryShortcuts';
+import { TelierNewsSection } from '../components/home/TelierNewsSection';
 import { SendToLovedOnesCard } from '../components/home/SendToLovedOnesCard';
 import { WidePromoCarousel } from '../components/home/WidePromoCarousel';
 import { ProductScrollRow } from '../components/home/ProductScrollRow';
 import { GameBannerShowcase } from '../components/home/GameBannerShowcase';
 import { QuickRebuy } from '../components/home/QuickRebuy';
 import { TrustSection } from '../components/home/TrustSection';
-import { ProductCategory, Product, AppActiveTab } from '../types';
+import { NewsDetailModal } from '../components/common/NewsDetailModal';
+import { AllNewsModal } from '../components/common/AllNewsModal';
+import { ProductCategory, Product, AppActiveTab, NewsArticle } from '../types';
 import { ALL_PRODUCTS, KUOTA_PRODUCTS } from '../data/mockData';
 import { RecentTarget } from '../services/storage';
 
@@ -28,6 +31,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
   recentTargets,
   onSelectRecentTarget
 }) => {
+  const [selectedArticle, setSelectedArticle] = useState<NewsArticle | null>(null);
+  const [isAllNewsOpen, setIsAllNewsOpen] = useState<boolean>(false);
+
   // 1. "Pasti Murah" products (Selected best value flash & low-cost items)
   const pastiMurahProducts = useMemo(() => {
     const list: Product[] = [];
@@ -81,8 +87,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* 2. Layanan Utama (Quick Action Shortcuts) */}
       <CategoryShortcuts onSelectCategory={onSelectCategory} />
 
-      {/* 3. Fitur Kirim Orang Terdekat (2 Pill Buttons: Kirim Data & Kirim Pulsa) */}
-      <SendToLovedOnesCard onSendGift={onSendGift} />
+      {/* 3. TELIERNEWS - Kartu Berita 6 Cards Horizontal Scrollable (Di bawah Layanan Utama) */}
+      <TelierNewsSection 
+        onSelectArticle={(art) => setSelectedArticle(art)}
+        onViewAllNews={() => setIsAllNewsOpen(true)}
+      />
 
       {/* 4. Section "Pasti Murah" (Horizontal swipeable cards 1-5 + 6th "Lihat Semua") */}
       <ProductScrollRow
@@ -119,22 +128,43 @@ export const HomeView: React.FC<HomeViewProps> = ({
         onSelectProduct={(prod) => onSelectProduct(prod)}
       />
 
-      {/* 8. Re-buy / Last Numbers (Personalization without login) */}
+      {/* 8. Re-buy / Last Numbers (Personalization without login - Kartu Kirim Ulang) */}
       <QuickRebuy
         recentTargets={recentTargets}
         onSelectTarget={onSelectRecentTarget}
       />
 
-      {/* 9. Trust & Service Info */}
+      {/* 9. Fitur Kirim Orang Terdekat (Pindah ke Bawah Kartu Kirim Ulang / Beli Lagi) */}
+      <SendToLovedOnesCard onSendGift={onSendGift} />
+
+      {/* 10. Trust & Service Info */}
       <TrustSection />
 
-      {/* 10. Desktop Footer note */}
+      {/* 11. Desktop Footer note */}
       <footer className="pt-8 pb-12 text-center text-xs text-neutral-400 border-t border-neutral-200/80 hidden md:block">
         <p className="font-bold text-neutral-700">Pulsaku &copy; {new Date().getFullYear()} • Platform Pembayaran Digital Terpercaya</p>
         <p className="text-[11px] text-neutral-400 mt-1">
           Bebas Biaya Admin QRIS • Otomatis 24 Jam • Terhubung Jalur Resmi Operator
         </p>
       </footer>
+
+      {/* MODAL 1: Detail Artikel Berita */}
+      <NewsDetailModal
+        article={selectedArticle}
+        onClose={() => setSelectedArticle(null)}
+        onSelectCategory={onSelectCategory}
+      />
+
+      {/* MODAL 2: Hub Semua Berita Teliernews */}
+      <AllNewsModal
+        isOpen={isAllNewsOpen}
+        onClose={() => setIsAllNewsOpen(false)}
+        onSelectArticle={(art) => {
+          setIsAllNewsOpen(false);
+          setSelectedArticle(art);
+        }}
+        onSelectCategory={onSelectCategory}
+      />
     </div>
   );
 };

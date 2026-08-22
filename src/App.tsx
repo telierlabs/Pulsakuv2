@@ -4,6 +4,7 @@ import { Header } from './components/layout/Header';
 import { BottomNav } from './components/layout/BottomNav';
 import { DesktopNav } from './components/layout/DesktopNav';
 import { GlobalSearchModal } from './components/common/GlobalSearchModal';
+import { SplashScreen } from './components/common/SplashScreen';
 
 // Views
 import { HomeView } from './views/HomeView';
@@ -420,6 +421,9 @@ function MainApp() {
           setActiveTab('help');
         }}
       />
+
+      {/* Initial App Load Splash Screen with Ambient Blur Animation */}
+      <SplashScreen durationMs={1800} />
     </div>
   );
 }
