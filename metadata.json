@@ -1,0 +1,6 @@
+{
+  "name": "Pulsaku",
+  "description": "Aplikasi pembelian produk digital, pulsa, paket kuota, token PLN, dan voucher game yang cepat, modern, dan tanpa login wajib.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
